@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #121212; /* Dark background */
+  background-color: #ffffff; /* Dark background */
   color: #ffffff; /* White text */
 }
 
@@ -11,9 +11,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 17px 20px;
   background-color: #1f1f1f; /* Darker shade for nav */
   color: white;
+  box-shadow: #000000 0px 0px 20px;
 }
 
 .feeder-icon {
@@ -24,7 +25,7 @@ body {
 .feeder-icon i {
   font-size: 24px;
   margin-right: 10px;
-  color: #0073CF; /* Green color for bus icon */
+  color: #04a72f; /* Green color for bus icon */
 }
 
 .feeder-text {
@@ -49,13 +50,14 @@ body {
 
 .nav-options span:hover {
   color: #0073CF; /* Green color on hover */
+  transform: translateY(-1px);
 }
 
   /* Separator line */
-.section-divider {
+.section-divider1 {
   border: none;
-  border-top: 1px solid #000000;
-  margin: 0 20px;
+  border-top: 0px solid #000000;
+  margin: 10 0px;
   opacity: 0.7;
 }
 
@@ -70,11 +72,14 @@ body {
 .header-container {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
   padding: 30px 20px;
-  background-color: #1f1f1f;
+  background-color: #00415C;
+  width: 95%;
+  margin: auto;
   justify-content: center;
   flex-wrap: wrap; /* Makes it responsive on small screens */
+  border-radius: 20px;
 }
 
 /* Logo Styling */
@@ -102,60 +107,6 @@ body {
   color: #b3b3b3;
 }
 
-/* Bus Schedule Overview */
-.schedule-container {
-  padding: 20px;
-  text-align: center;
-}
-
-.schedule-container h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  color: #0073CF; /* Green color for heading */
-}
-
-.stops-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.stop-card {
-  background-color: #1f1f1f; /* Darker shade for cards */
-  border: 1px solid #333;
-  border-radius: 10px;
-  padding: 15px;
-  width: 200px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.stop-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.stop-card img {
-  width: 180px;
-  height: 100px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.stop-card h3 {
-  margin: 10px 0;
-  font-size: 18px;
-}
-
-.stop-card p {
-  margin: 5px 0;
-  font-size: 14px;
-  color: #b3b3b3; /* Light gray for text */
-}
-
-
-
 /* Track Bus Button */
 .track-button-container {
   text-align: center;
@@ -165,7 +116,7 @@ body {
 .track-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #0073CF;
+  background-color: #FEA02F;
   color: white;
   border: none;
   border-radius: 8px;
@@ -176,6 +127,72 @@ body {
 }
 
 .track-button:hover {
-  background-color: #005fa3;
+  background-color: #be6805;
   transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);s
 }
+
+
+  /* Separator line */
+  .section-divider2 {
+    border: none;
+    border-top: 1px solid #000000;
+    margin: 30px 0px -10px;
+    opacity: 0.7;
+  }
+
+/* Bus Schedule Overview */
+.schedule-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.schedule-container h2 {
+  margin-bottom: 25px;
+  font-size: 22px;
+  color: #0073CF; /* Green color for heading */
+}
+
+.stops-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.stop-card {
+  background-color: #8eb89b; /* Darker shade for cards */
+
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stop-card:hover {
+  transform: scale(1.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stop-card img {
+  width: 180px;
+  height: 100px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.stop-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.stop-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #000000; /* Light gray for text */
+}
+
+
+
