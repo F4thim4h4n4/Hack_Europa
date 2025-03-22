@@ -1,0 +1,136 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* White text */
+  }
+  
+  /* Top Navigation Bar */
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1f1f1f; /* Darker shade for nav */
+    color: white;
+  }
+  
+  .feeder-icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  .feeder-icon i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #4CAF50; /* Green color for bus icon */
+  }
+  
+  .feeder-text {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .nav-options {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-options span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #b3b3b3; /* Light gray for text */
+    transition: color 0.3s ease;
+  }
+  
+  .nav-options span:hover {
+    color: #4CAF50; /* Green color on hover */
+  }
+  
+  /* Full-Width Map Image */
+  .map-image {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .map-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Heading Below Map */
+  .heading {
+    text-align: center;
+    padding: 20px;
+    background-color: #1f1f1f; /* Darker shade for heading */
+  }
+  
+  .heading h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #4CAF50; /* Green color for heading */
+  }
+  
+  .heading p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: #b3b3b3; /* Light gray for text */
+  }
+  
+  /* Bus Schedule Overview */
+  .schedule-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .schedule-container h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #4CAF50; /* Green color for heading */
+  }
+  
+  .stops-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .stop-card {
+    background-color: #1f1f1f; /* Darker shade for cards */
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .stop-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .stop-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .stop-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  .stop-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #b3b3b3; /* Light gray for text */
+  }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CUSAT Metro Feeder Bus Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <div class="top-nav">
+    <div class="feeder-icon">
+      <i class="fas fa-bus"></i>
+      <span class="feeder-text">Feeder</span>
+    </div>
+    <div class="nav-options">
+      <span><i class="fas fa-map"></i> Map</span>
+      <span><i class="fas fa-map-marker-alt"></i> Stops</span>
+      <span><i class="fas fa-bell"></i> Notification</span>
+      <span><i class="fas fa-question-circle"></i> Help</span>
+      <span><i class="fas fa-search"></i> Search</span>
+    </div>
+  </div>
+
+  <!-- Full-Width Map Image -->
+  <div class="map-image">
+    <img src="https://via.placeholder.com/1200x400" alt="Map Image">
+  </div>
+
+  <!-- Heading Below Map -->
+  <div class="heading">
+    <h1>Real-Time Bus Tracker</h1>
+    <p>Track live location and stops of the CUSAT Metro Feeder Bus</p>
+  </div>
+
+  <!-- Bus Schedule Overview -->
+  <div class="schedule-container">
+    <h2>Bus Schedule Overview</h2>
+    <div class="stops-container">
+      <!-- Kalamassery Metro Station -->
+      <div class="stop-card">
+        <img src="https://via.placeholder.com/100" alt="Kalamassery Metro Station">
+        <h3>Kalamassery Metro Station</h3>
+        <p><strong>Morning:</strong> 7:00 AM, 8:00 AM, 9:00 AM</p>
+        <p><strong>Evening:</strong> 4:00 PM, 5:00 PM, 6:00 PM</p>
+      </div>
+
+      <!-- CUSAT Main Gate -->
+      <div class="stop-card">
+        <img src="https://via.placeholder.com/100" alt="CUSAT Main Gate">
+        <h3>CUSAT Main Gate</h3>
+        <p><strong>Morning:</strong> 7:15 AM, 8:15 AM, 9:15 AM</p>
+        <p><strong>Evening:</strong> 4:15 PM, 5:15 PM, 6:15 PM</p>
+      </div>
+
+      <!-- SOE Gate -->
+      <div class="stop-card">
+        <img src="https://via.placeholder.com/100" alt="SOE Gate">
+        <h3>SOE Gate</h3>
+        <p><strong>Morning:</strong> 7:30 AM, 8:30 AM, 9:30 AM</p>
+        <p><strong>Evening:</strong> 4:30 PM, 5:30 PM, 6:30 PM</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+  <script src="script.js"></script>
+</body>
+</html>
