@@ -1,4 +1,3 @@
-// Replace with your Google Maps API key
 const GOOGLE_MAPS_API_KEY = 'YOUR_GOOGLE_MAPS_API_KEY';
 
 // Starting and ending points
