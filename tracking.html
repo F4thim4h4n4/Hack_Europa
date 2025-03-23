@@ -80,7 +80,36 @@
           className: 'marker-label'
         })
         .openTooltip();
+
+
+        const busIcon = L.icon({
+    iconUrl: 'tracker.png', // Use any bus icon you like
+    iconSize: [50, 50],
+    iconAnchor: [30, 30],
+    popupAnchor: [100, -10]
+  });
+
+  // ✅ Create the moving bus marker at the first point
+  let busMarker = L.marker(routeCoordinates[0], { icon: busIcon }).addTo(map);
+
+  // ✅ Animate the bus marker along the route
+  let index = 10;
+  const speed = 2000; // milliseconds between points
+
+  function moveBus() {
+    index++;
+    if (index >= routeCoordinates.length) {
+      index = 0; // loop back to start, or stop the animation
+    }
+    busMarker.setLatLng(routeCoordinates[index]);
+    setTimeout(moveBus, speed);
+  }
+
+  // Start the animation
+  moveBus();
     });
+
+    
   </script>
 </body>
 </html>

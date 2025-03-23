@@ -1,48 +1,63 @@
-<script>
-  // Initialize the map
-  const map = L.map("map").setView([10.047, 76.324], 15);
+// Define the custom bus icon
+const busIcon = L.icon({
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/61/61231.png",
+  iconSize: [40, 40],
+  iconAnchor: [20, 20]
+});
 
-  // Load OpenStreetMap tiles
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution: "© OpenStreetMap"
-  }).addTo(map);
+// Create the bus marker
+const busMarker = L.marker(routeCoordinates[0], { icon: busIcon }).addTo(map);
 
-  // Now add your route and markers
-  const routeCoordinates = [
-    [10.058644168891453, 76.32197074447247],
-    [10.044401981092289, 76.32463691855706],
-    [10.042720267478686, 76.32830749008187],
-    [10.04498329255777, 76.32795317926157],
-    [10.048408773013792, 76.33008553542277]
+// Interpolate between two coordinates
+function interpolatePosition(start, end, t) {
+  return [
+    start[0] + (end[0] - start[0]) * t,
+    start[1] + (end[1] - start[1]) * t
   ];
+}
 
-  const busRoute = L.polyline(routeCoordinates, {
-    color: "blue",
-    weight: 5,
-    opacity: 0.8
-  }).addTo(map);
+// Animate between two points smoothly
+function animateSegment(start, end, duration, callback) {
+  const startTime = performance.now();
 
-  const stops = [
-    { name: "Kalamassery Metro", coords: [10.058644168891453, 76.32197074447247] },
-    { name: "Main Gate", coords: [10.047169758249389, 76.3195680447786] },
-    { name: "ADM Block", coords: [10.044401981092289, 76.32463691855706] },
-    { name: "Amenity Center", coords: [10.042720267478686, 76.32830749008187] },
-    { name: "C-SiS", coords: [10.04498329255777, 76.32795317926157] },
-    { name: "SOE Gate", coords: [10.048408773013792, 76.33008553542277] }
-  ];
+  function animateFrame(currentTime) {
+    const elapsed = currentTime - startTime;
+    const t = Math.min(elapsed / duration, 1); // from 0 to 1
 
-  stops.forEach(stop => {
-    L.marker(stop.coords)
-      .addTo(map)
-      .bindTooltip(stop.name, {
-        permanent: true,
-        direction: "top",
-        offset: [0, -10],
-        className: "marker-label"
-      })
-      .openTooltip();
-  });
+    const pos = interpolatePosition(start, end, t);
+    busMarker.setLatLng(pos);
 
-  map.fitBounds(busRoute.getBounds());
-</script>
+    if (t < 1) {
+      requestAnimationFrame(animateFrame);
+    } else if (callback) {
+      callback();
+    }
+  }
+
+  requestAnimationFrame(animateFrame);
+}
+
+// Animate the full route one segment at a time
+function animateBusRoute(route, segmentDuration = 3000) {
+  let index = 0;
+
+  function nextSegment() {
+    if (index < route.length - 1) {
+      animateSegment(route[index], route[index + 1], segmentDuration, () => {
+        index++;
+        nextSegment();
+      });
+    } else {
+      // Loop back to start
+      index = 0;
+      setTimeout(() => {
+        animateSegment(route[route.length - 1], route[0], segmentDuration, nextSegment);
+      }, 500);
+    }
+  }
+
+  nextSegment();
+}
+
+// Start animating
+animateBusRoute(routeCoordinates, 3000); // 3s per segment
