@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Signup</title>
-    <link rel="stylesheet" href="style/login.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Signup</title>
+  <link rel="stylesheet" href="style/login.css" />
 </head>
 <body>
   <div class="top-nav"></div>
   <main>
-    
     <!-- Header Section -->
     <div class="header-container">
       <div class="map-logo">
@@ -21,7 +20,7 @@
       </div>
     </div>
 
-    <!-- Login Section -->
+    <!-- Auth Section -->
     <div class="auth-container">
       <h2 id="form-title">Login</h2>
       <form id="auth-form">
@@ -29,68 +28,79 @@
         <input type="password" id="password" placeholder="Password" required />
         <button type="submit" id="auth-btn">Login</button>
       </form>
-      <p id="toggle-text">Don't have an account? <a href="#" id="toggle-link">Sign Up</a></p>
+      <p id="toggle-text">
+        Need an account? <a href="#" id="toggle-link">Sign up now</a>
+      </p>
     </div>
   </main>
-      </main>
-    
-    
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyArG9VN_gWorVNkTsKkABlUmzQKOBktcg4",
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyArG9VN_gWorVNkTsKkABlUmzQKOBktcg4",
       authDomain: "http://feeder-bus.firebaseapp.com",
       projectId: "feeder-bus",
       storageBucket: "http://feeder-bus.firebasestorage.app",
       messagingSenderId: "131957807916",
       appId: "1:131957807916:web:4362a44fb2ec3c38faaa89"
-        };
+    };
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-        // Toggle Login/Signup Mode
-        let isSignup = false;
-        document.getElementById("toggle-link").addEventListener("click", (e) => {
-            e.preventDefault();
-            isSignup = !isSignup;
+    let isSignup = false;
 
-            document.getElementById("form-title").innerText = isSignup ? "Sign Up" : "Login";
-            document.getElementById("auth-btn").innerText = isSignup ? "Sign Up" : "Login";
-            document.getElementById("toggle-text").innerHTML = isSignup 
-                ? 'Already have an account? <a href="#" id="toggle-link">Login</a>' 
-                : 'Don\'t have an account? <a href="#" id="toggle-link">Sign Up</a>';
-        });
+    function updateToggleText() {
+      document.getElementById("form-title").innerText = isSignup ? "Sign Up" : "Login";
+      document.getElementById("auth-btn").innerText = isSignup ? "Sign Up" : "Login";
+      document.getElementById("toggle-text").innerHTML = isSignup
+        ? 'Already registered? <a href="#" id="toggle-link">Login here</a>'
+        : 'Need an account? <a href="#" id="toggle-link">Sign up now</a>';
+      
+      // Re-attach event listener to new toggle link
+      document.getElementById("toggle-link").addEventListener("click", toggleMode);
+    }
 
-        // Handle Login/Signup
-        document.getElementById("auth-form").addEventListener("submit", (e) => {
-            e.preventDefault();
+    function toggleMode(e) {
+      if (e) e.preventDefault();
+      isSignup = !isSignup;
+      updateToggleText();
+    }
 
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+    // Initial event listener
+    document.getElementById("toggle-link").addEventListener("click", toggleMode);
 
-            if (isSignup) {
-                createUserWithEmailAndPassword(auth, email, password)
-                    .then(() => {
-                        alert("Account Created Successfully!");
-                        window.location.href = "index.html";
-                    })
-                    .catch((error) => alert(error.message));
-            } else {
-                signInWithEmailAndPassword(auth, email, password)
-                    .then(() => {
-                        alert("Login Successful!");
-                        window.location.href = "index.html";
-                    })
-                    .catch((error) => alert(error.message));
-            }
-        });
-    </script>
+    // Auth form submit
+    document.getElementById("auth-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      if (isSignup) {
+        createUserWithEmailAndPassword(auth, email, password)
+          .then(() => {
+            alert("Account Created Successfully!");
+            window.location.href = "index.html";
+          })
+          .catch((error) => alert(error.message));
+      } else {
+        signInWithEmailAndPassword(auth, email, password)
+          .then(() => {
+            alert("Login Successful!");
+            window.location.href = "index.html";
+          })
+          .catch((error) => alert(error.message));
+      }
+    });
+  </script>
 </body>
 </html>

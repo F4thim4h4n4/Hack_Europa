@@ -1,18 +1,60 @@
-signInWithEmailAndPassword(auth, email, password)
-  .then(() => {
-    alert("Login Successful!");
-    window.location.href = "dashboard.html"; // ← ✅ This redirects after login
-  })
-  .catch((error) => alert(error.message));
+const formTitle = document.getElementById("form-title");
+const authBtn = document.getElementById("auth-btn");
+const toggleText = document.getElementById("toggle-text");
+const authContainer = document.querySelector(".auth-container");
 
+let isSignup = false;
 
-  createUserWithEmailAndPassword(auth, email, password)
-  .then(() => {
-    alert("Account Created Successfully!");
-    window.location.href = "dashboard.html"; // ← ✅ This redirects after signup
-  })
-  .catch((error) => alert(error.message));
+function toggleMode(e) {
+  if (e) e.preventDefault();
+  isSignup = !isSignup;
 
+  // Add slide-out effect
+  authContainer.style.transform = "translateX(-100%)";
+  authContainer.style.transition = "transform 0.3s ease";
+
+  setTimeout(() => {
+    // Change content after slide out
+    formTitle.innerText = isSignup ? "Create Account" : "Welcome Back";
+    authBtn.innerText = isSignup ? "Sign Up" : "Login";
+    toggleText.innerHTML = isSignup
+      ? 'Already registered? <a href="#" id="toggle-link">Login here</a>'
+      : 'Need an account? <a href="#" id="toggle-link">Sign up now</a>';
+
+    // Display signup hint
+    if (isSignup) {
+      alert("Ensure to fill all fields to create your account!");
+    }
+
+    // Reattach event listener to new toggle link
+    document.getElementById("toggle-link").addEventListener("click", toggleMode);
+
+    // Slide back in
+    authContainer.style.transform = "translateX(0)";
+  }, 300);
+}
+
+// Initial toggle listener
+document.getElementById("toggle-link").addEventListener("click", toggleMode);
+
+// Firebase Login and Signup
+function handleAuth(email, password) {
+  if (isSignup) {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("Account Created Successfully!");
+        window.location.href = "dashboard.html";
+      })
+      .catch((error) => alert(error.message));
+  } else {
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("Login Successful!");
+        window.location.href = "dashboard.html";
+      })
+      .catch((error) => alert(error.message));
+  }
+}
 
 const GOOGLE_MAPS_API_KEY = 'YOUR_GOOGLE_MAPS_API_KEY';
 

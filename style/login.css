@@ -61,7 +61,6 @@ body {
     color: #b3b3b3;
   }
   
-  /* Auth Container (Login Form) Styling */
   .auth-container {
     background-color: white;
     padding: 30px 40px;
@@ -70,7 +69,10 @@ body {
     width: 100%;
     max-width: 400px;
     text-align: center;
+    transition: all 0.3s ease; /* ← Add this */
+    opacity: 1; /* Default */
   }
+  
   
 /* Input Fields */
 input {
