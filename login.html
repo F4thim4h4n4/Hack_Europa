@@ -22,6 +22,8 @@
 
     <!-- Auth Section -->
     <div class="auth-container">
+      <div id="loader" class="spinner" style="display: none;"></div>
+
       <h2 id="form-title">Login</h2>
       <form id="auth-form">
         <input type="email" id="email" placeholder="Email" required />
@@ -94,11 +96,13 @@
           .catch((error) => alert(error.message));
       } else {
         signInWithEmailAndPassword(auth, email, password)
-          .then(() => {
-            alert("Login Successful!");
-            window.location.href = "index.html";
-          })
-          .catch((error) => alert(error.message));
+  .then(() => {
+    window.location.href = "index.html"; 
+  })
+  .catch((error) => {
+    alert(error.message);
+  });
+
       }
     });
   </script>
