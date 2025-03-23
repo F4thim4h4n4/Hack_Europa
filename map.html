@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Bus Tracking</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+    .marker-label {
+      background: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: bold;
+      border: 1px solid #666;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([10.048, 76.326], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    const routeCoordinates = [
+      [10.059060098561137, 76.322132376347],
+      [10.047522246867628, 76.318588070999],
+      [10.047169758249389, 76.3195680447786],
+      [10.04589402029761, 76.32322769480818],
+      [10.044401981092289, 76.32463691855706],
+      [10.044133484500973, 76.32483627899711],
+      [10.043706514376819, 76.3265605062435],
+      [10.042742860942758, 76.32732673595319],
+      [10.042612132542603, 76.32777812870295],
+      [10.042410437193029, 76.32830159256402],
+      [10.042720267478686, 76.32830749008187],
+      [10.04498329255777, 76.32795317926157],
+      [10.048408773013792, 76.33008553542277]
+    ];
+
+    const busRoute = L.polyline(routeCoordinates, {
+      color: 'blue',
+      weight: 5,
+      opacity: 0.8
+    }).addTo(map);
+
+    map.fitBounds(busRoute.getBounds());
+
+    const stops = [
+      { name: "Kalamassery Metro", coords: [10.058644168891453, 76.32197074447247] },
+      { name: "CUSAT Main Gate", coords: [10.047169758249389, 76.3195680447786] },
+      { name: "Administrative Block", coords: [10.044401981092289, 76.32463691855706] },
+      { name: "Amenity Centre", coords: [10.042720267478686, 76.32830749008187] },
+      { name: "C-Sis", coords: [10.04498329255777, 76.32795317926157] },
+      { name: "SOE Gate", coords: [10.048408773013792, 76.33008553542277] }
+    ];
+
+    
+
+
+
+    
+  </script>
+</body>
+</html>

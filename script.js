@@ -61,3 +61,18 @@ function animateBusRoute(route, segmentDuration = 3000) {
 
 // Start animating
 animateBusRoute(routeCoordinates, 3000); // 3s per segment
+
+
+
+
+const searchIcon = document.getElementById("search-icon");
+const searchBox = document.getElementById("search-box");
+
+searchIcon.addEventListener("click", () => {
+  if (searchBox.style.display === "none" || searchBox.style.display === "") {
+    searchBox.style.display = "inline-block";
+    searchBox.focus();
+  } else {
+    searchBox.style.display = "none";
+  }
+});

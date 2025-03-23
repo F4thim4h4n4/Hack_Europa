@@ -18,11 +18,41 @@
       <span class="feeder-text">Feeder</span>
     </div>
     <div class="nav-options">
-      <span><i class="fas fa-map"></i> Map</span>
-      <span><i class="fas fa-map-marker-alt"></i> Stops</span>
-      <span><i class="fas fa-bell"></i> Notification</span>
+      <span>
+        <a href="map.html" class="nav-button">
+          <i class="fas fa-map"></i> Map
+        </a>
+      </span>
+      
+      <span class="dropdown">
+        <i class="fas fa-map-marker-alt"></i> Stops
+        <div class="dropdown-content">
+          <a href="#kalamassery">Kalamassery Metro Station</a>
+          <a href="#cusat">CUSAT Main Gate</a>
+          <a href="#Administrative Block">Administrative Block</a>
+          <a href="#soe">Amenity Centre</a>
+          <a href="#soe">C-Sis</a>
+          <a href="#soe">SOE</a>
+        </div>
+      </span>
+      
+      <span class="notification-toggle">
+        <i class="fas fa-bell"></i> Notification
+        <label class="switch">
+          <input type="checkbox" id="notif-toggle">
+          <span class="slider round"></span>
+        </label>
+      </span>
+
+      
+
       <span><i class="fas fa-question-circle"></i> Help</span>
-      <span><i class="fas fa-search"></i> Search</span>
+      <span class="search-container">
+  <i class="fas fa-search" id="search-icon"></i> Search
+  <input type="text" id="search-box" placeholder="Search..." />
+</span>
+
+
     </div>
   </div>
   <hr class="section-divider1">

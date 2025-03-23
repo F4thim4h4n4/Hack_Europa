@@ -27,8 +27,8 @@ body {
     align-items: center;
     gap: 25px;
     padding: 30px 20px;
-    background-color: #00415C;
-    width: 95%;
+    background-color: #cacce5;
+    width: 92%;
     max-width: 800px;
     justify-content: center;
     flex-wrap: wrap;
@@ -52,13 +52,13 @@ body {
   .heading-text h1 {
     margin: 0;
     font-size: 28px;
-    color: #0073CF;
+    color: #000000;
   }
   
   .heading-text p {
     margin: 5px 0 0;
     font-size: 16px;
-    color: #b3b3b3;
+    color: #000000;
   }
   
   .auth-container {
