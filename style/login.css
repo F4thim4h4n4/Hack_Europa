@@ -1,0 +1,136 @@
+/* Background Image */
+body {
+    background-color : #00415c;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+    background-color: #ececec; /* Darker shade for nav */
+    color: white;
+    box-shadow: #000000 0px 0px 20px;
+  }
+  
+  /* Header Container with Logo + Text */
+  .header-container {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 30px 20px;
+    background-color: #00415C;
+    width: 95%;
+    max-width: 800px;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    margin-bottom: 40px; /* Adds spacing below header */
+  }
+  
+  /* Logo Styling */
+  .map-logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  /* Heading Text Styling */
+  .heading-text {
+    text-align: left;
+  }
+  
+  .heading-text h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #0073CF;
+  }
+  
+  .heading-text p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: #b3b3b3;
+  }
+  
+  /* Auth Container (Login Form) Styling */
+  .auth-container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 12px; /* Increased padding for better feel */
+    margin: 12px 0; /* Space between input fields */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px; /* Adjusted text size for consistency */
+}
+
+/* Login/Signup Button */
+button {
+    width: 100%;
+    padding: 14px; /* Slightly larger than input */
+    background: #00415c;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Same as input fields */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+/* Add space between last input field and the button */
+#auth-form input:last-of-type {
+    margin-bottom: 30px; /* Extra space before the button */
+}
+
+/* Button hover effect */
+button:hover {
+    background: #0056b3;
+    transform: scale(1.03);
+}
+
+
+
+
+/* App Title */
+.app-title {
+    font-size: 26px; /* Increase text size */
+    font-weight: bold;
+    color: #00415c;
+    margin: 0;
+}
+
+
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Toggle Text */
+#toggle-text {
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+#toggle-text a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}

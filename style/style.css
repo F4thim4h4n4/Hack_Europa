@@ -1,0 +1,197 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; /* Dark background */
+  color: #ffffff; /* White text */
+}
+
+/* Top Navigation Bar */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 20px;
+  background-color: #1f1f1f; /* Darker shade for nav */
+  color: white;
+  box-shadow: #000000 0px 0px 20px;
+}
+
+.feeder-icon {
+  display: flex;
+  align-items: center;
+}
+
+.feeder-icon i {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #04a72f; /* Green color for bus icon */
+}
+
+.feeder-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-options {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-options span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #b3b3b3; /* Light gray for text */
+  transition: color 0.3s ease;
+}
+
+.nav-options span:hover {
+  color: #0073CF; /* Green color on hover */
+  transform: translateY(-1px);
+}
+
+  /* Separator line */
+.section-divider1 {
+  border: none;
+  border-top: 0px solid #000000;
+  margin: 10 0px;
+  opacity: 0.7;
+}
+
+/* Full-Width Map Image */
+.map-image {
+  margin: 0 auto;
+  width: 50%;
+  overflow: hidden;
+}
+
+/* Header Container with Logo + Text */
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 30px 20px;
+  background-color: #00415C;
+  width: 50%;
+  margin: auto;
+  justify-content: center;
+  flex-wrap: wrap; /* Makes it responsive on small screens */
+  border-radius: 20px;
+}
+
+/* Logo Styling */
+.map-logo img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Heading Text Styling */
+.heading-text {
+  text-align: left;
+}
+
+.heading-text h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #0073CF;
+}
+
+.heading-text p {
+  margin: 5px 0 0;
+  font-size: 16px;
+  color: #b3b3b3;
+}
+
+/* Track Bus Button */
+.track-button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.track-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #FEA02F;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.track-button:hover {
+  background-color: #be6805;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+  /* Separator line */
+  .section-divider2 {
+    border: none;
+    border-top: 1px solid #000000;
+    margin: 30px 0px -10px;
+    opacity: 0.7;
+  }
+
+/* Bus Schedule Overview */
+.schedule-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.schedule-container h2 {
+  margin-bottom: 25px;
+  font-size: 22px;
+  color: #0073CF; /* Green color for heading */
+}
+
+.stops-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.stop-card {
+  background-color: #00415C; /* Darker shade for cards */
+
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stop-card:hover {
+  transform: scale(1.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stop-card img {
+  width: 180px;
+  height: 100px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.stop-card h3 {
+  margin: 2px 2px;
+  font-size: 16px;
+}
+
+.stop-card p {
+  margin: 10px 0px 0px 0px;
+  font-size: 14px;
+  color: #ffffff; /* Light gray for text */
+}
+
+
+
