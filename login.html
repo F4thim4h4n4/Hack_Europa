@@ -79,14 +79,14 @@
                 createUserWithEmailAndPassword(auth, email, password)
                     .then(() => {
                         alert("Account Created Successfully!");
-                        window.location.href = "dashboard.html";
+                        window.location.href = "index.html";
                     })
                     .catch((error) => alert(error.message));
             } else {
                 signInWithEmailAndPassword(auth, email, password)
                     .then(() => {
                         alert("Login Successful!");
-                        window.location.href = "dashboard.html";
+                        window.location.href = "index.html";
                     })
                     .catch((error) => alert(error.message));
             }

@@ -1,3 +1,19 @@
+signInWithEmailAndPassword(auth, email, password)
+  .then(() => {
+    alert("Login Successful!");
+    window.location.href = "dashboard.html"; // ← ✅ This redirects after login
+  })
+  .catch((error) => alert(error.message));
+
+
+  createUserWithEmailAndPassword(auth, email, password)
+  .then(() => {
+    alert("Account Created Successfully!");
+    window.location.href = "dashboard.html"; // ← ✅ This redirects after signup
+  })
+  .catch((error) => alert(error.message));
+
+
 const GOOGLE_MAPS_API_KEY = 'YOUR_GOOGLE_MAPS_API_KEY';
 
 // Starting and ending points
